@@ -84,5 +84,5 @@ def show_speedometer(sentiment_score: int):
             height=400
         )
 
-        placeholder.plotly_chart(fig, use_container_width=True)
+        placeholder.plotly_chart(fig, width="stretch")
         time.sleep(0.02)  # Smooth animation

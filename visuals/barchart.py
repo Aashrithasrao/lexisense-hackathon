@@ -48,4 +48,4 @@ def show_sentiment_bar_chart(results_df: pd.DataFrame):
         margin=dict(l=40, r=40, t=50, b=40)
     )
 
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, width="stretch")

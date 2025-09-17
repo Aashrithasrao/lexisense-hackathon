@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 from io import BytesIO
+from models.sentiment import analyze_long_text
 from models.summarise import summarize_text
 from models.sentiment import analyze_sentiment
 from models.wordcloud import generate_wordcloud
@@ -77,9 +78,9 @@ if not st.session_state.analysis_done:
                                 else:
                                     summary = comment
 
-                                sentiment = analyze_sentiment(comment)
-                                sentiment_label = sentiment.get("Sentiment", "neutral")
-                                sentiment_score = sentiment.get("Score", 0.0)
+                                analysis = analyze_long_text(comment)
+                                sentiment_label = analysis["overall"]["Sentiment"]
+                                sentiment_score = analysis["overall"]["Score"]
 
                             except Exception as e:
                                 st.error(f"Error processing comment: {e}")
